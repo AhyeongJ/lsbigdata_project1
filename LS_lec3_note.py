@@ -45,6 +45,10 @@ type(numbers)
 # 튜플
 ## 리스트와 유사하지만 한 번 생성된 후 수정할 수 없음. 
 a_tp = (10, 20, 30)
+a_tp
+a = 1, 2, 3   # 괄호 안 적어도 튜플로 생성 
+a
+
 a_list = [10, 20, 30]
 
 a_tp[1] = 25  # error
@@ -71,7 +75,8 @@ b[1:3] # 해당 인덱스 이상 & 미만
 
 # 튜플과 사용자 정의 함수 
 def min_max(numbers):
- return min(numbers), max(numbers)
+ return min(numbers), max(numbers)  
+#괄호가 딱히 지정이 안 되고 콤마로만 연결 되어 있어 튜플로 리턴 
 
 
 # 딕셔너리
@@ -187,3 +192,41 @@ bool_from_str_false = bool(str_false) # True, 비어있지 않으면 무조건 �
 print("'True'는 논리형으로 바꾸면:", bool_from_str_true)
 print("'False'는 논리형으로 바꾸면:", bool_from_str_false)
 
+
+# 교재 63 페이지
+
+# seaborn 패키지 설치 
+!pip install seaborn
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+
+var = ['a', 'a', 'b', 'c']
+var
+seaborn.countplot(x = var, color = "pink")
+plt.show()
+plt.clf()
+
+df = sns.load_dataset('titanic')
+sns.countplot(data = df, x = "sex", hue ="sex")
+plt.show()
+plt.clf()
+
+sns.countplot(data=df, x="class", hue = "class")
+plt.show()
+plt.clf()
+
+sns.countplot(data = df, x = 'class', hue = 'alive', orient = "v")
+plt.show()
+plt.clf()
+
+sns.countplot(data = df, y = 'class', hue = 'alive')  
+plt.show()
+plt.clf()
+
+
+!pip install scikit-learn
+import sklearn.metrics
+from sklearn import metrics 
+import sklearn.metrics as met
+met.accuracy_score()
